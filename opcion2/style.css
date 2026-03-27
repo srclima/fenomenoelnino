@@ -116,7 +116,10 @@ body {
 /* HERO */
 .c-hero {
     position: relative;
-    background: var(--color-blue-primary);
+    background-color: var(--color-blue-primary);
+    background-image: url('https://f.rpp-noticias.io/2026/03/23/foto-landing-banner_1851107.png');
+    background-size: cover;
+    background-position: center;
     color: var(--color-white);
     padding: 6rem 0;
     overflow: hidden;
