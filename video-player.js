@@ -40,7 +40,10 @@ function renderPlaylist(activeIndex) {
         };
         
         item.innerHTML = `
-            <div class="c-playlist-thumb"><img src="${video.image}" alt="${video.title}" style="width: 100%; height: 100%; object-fit: contain;"></div>
+            <div class="c-playlist-thumb">
+                <div class="c-playlist-thumb__bg" style="background-image: url('${video.image}')"></div>
+                <img src="${video.image}" alt="${video.title}" class="c-playlist-thumb__img">
+            </div>
             <div class="c-playlist-info">
                 <h4>${video.title}</h4>
                 <small class="${isActive ? 'u-text-blue' : 'c-playlist-info__time'}">${isActive ? 'AHORA' : video.duration}</small>
