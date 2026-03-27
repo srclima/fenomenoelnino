@@ -124,36 +124,16 @@
                 <div class="c-video-layout">
                     <!-- Main Video -->
                     <div class="c-video-main">
-                        <iframe class="c-video-player" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="main-video-player" class="c-video-player" src="" frameborder="0" allowfullscreen></iframe>
                         <div class="c-video-main__info">
                             <span class="c-video-main__badge u-text-blue">REPRODUCIENDO:</span>
-                            <h3 class="c-video-main__title">Lanzamiento oficial de la campaña nacional de prevención</h3>
+                            <h3 id="main-video-title" class="c-video-main__title"></h3>
                         </div>
                     </div>
 
                     <!-- Sidebar Playlist -->
-                    <aside class="c-playlist">
-                        <div class="c-playlist-item c-playlist-item--active">
-                            <div class="c-playlist-thumb"><img src="https://via.placeholder.com/120x68" alt=""></div>
-                            <div class="c-playlist-info">
-                                <h4>Campaña RPP y Pacífico: Reportaje Especial</h4>
-                                <small class="u-text-blue">AHORA</small>
-                            </div>
-                        </div>
-                        <div class="c-playlist-item">
-                            <div class="c-playlist-thumb"><img src="https://via.placeholder.com/120x68" alt=""></div>
-                            <div class="c-playlist-info">
-                                <h4>Entrevista: Recomendaciones del Senamhi</h4>
-                                <small class="c-playlist-info__time">8:45</small>
-                            </div>
-                        </div>
-                        <div class="c-playlist-item">
-                            <div class="c-playlist-thumb"><img src="https://via.placeholder.com/120x68" alt=""></div>
-                            <div class="c-playlist-info">
-                                <h4>¿Cómo actuar ante un huaico o inundación?</h4>
-                                <small class="c-playlist-info__time">5:12</small>
-                            </div>
-                        </div>
+                    <aside id="video-playlist-container" class="c-playlist">
+                        <!-- Generado vía JS -->
                     </aside>
                 </div>
             </div>
@@ -174,5 +154,6 @@
         </div>
     </section>
 
+    <script src="video-player.js"></script>
 </body>
 </html>
