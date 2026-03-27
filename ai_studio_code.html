@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenómeno El Niño 2026 | Preparados Estamos Más Seguros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. SETTINGS (Variables)
+           ========================================================================== */
+        :root {
+            --color-white: #FFFFFF;
+            --color-black: #000000;
+            --color-gray-100: #F9F9F9;
+            --color-gray-200: #EEEEEE;
+            --color-blue-primary: #009EE0; /* Color del Logo */
+            --color-yellow-accent: #FFE600; /* Color del Logo */
+            
+            --font-main: 'Inter', sans-serif;
+            --container-width: 1440px;
+            --transition: all 0.3s ease;
+        }
+
+        /* ==========================================================================
+           2. GENERIC (Reset)
+           ========================================================================== */
+        *, *::before, *::after { box-sizing: border-box; }
+        body, h1, h2, h3, p, ul { margin: 0; padding: 0; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ==========================================================================
+           3. BASE (Elementos Base)
+           ========================================================================== */
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==========================================================================
+           4. OBJECTS (Layout)
+           ========================================================================== */
+        .o-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .o-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        /* ==========================================================================
+           5. COMPONENTS
+           ========================================================================== */
+        
+        /* HEADER & NAVIGATION */
+        .c-header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .c-header__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .c-nav { display: flex; gap: 2rem; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; }
+        .c-nav__link:hover { color: var(--color-blue-primary); }
+
+        /* SPONSOR BAR (Top and Bottom) */
+        .c-sponsor-bar {
+            background: var(--color-gray-100);
+            padding: 1rem 0;
+            border-bottom: 4px solid var(--color-black);
+        }
+
+        .c-sponsor-bar--bottom {
+            border-bottom: none;
+            border-top: 4px solid var(--color-black);
+            margin-top: 4rem;
+        }
+
+        .c-sponsor-bar__inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .c-sponsor-item { display: flex; align-items: center; gap: 1rem; }
+        .c-sponsor-label { font-size: 0.65rem; font-weight: 900; color: #555; }
+        .c-sponsor-logo { height: 35px; width: auto; object-fit: contain; }
+
+        /* HERO */
+        .c-hero {
+            position: relative;
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 10rem 0;
+            overflow: hidden;
+        }
+
+        .c-hero__bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.45;
+            filter: grayscale(1);
+        }
+
+        .c-hero__content { position: relative; z-index: 2; max-width: 850px; }
+
+        .c-hero__title {
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .c-hero__desc {
+            font-size: 1.25rem;
+            max-width: 600px;
+            border-left: 5px solid var(--color-blue-primary);
+            padding-left: 2rem;
+        }
+
+        /* NEWS CARDS */
+        .c-card {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--color-gray-200);
+            padding-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .c-card__img-container {
+            aspect-ratio: 16/9;
+            background: var(--color-gray-200);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .c-card__img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .c-card:hover .c-card__img { transform: scale(1.05); }
+
+        .c-badge {
+            background: var(--color-yellow-accent);
+            color: var(--color-black);
+            font-weight: 900;
+            font-size: 0.7rem;
+            padding: 0.3rem 0.6rem;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .c-card__title { font-size: 1.25rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+        .c-card__date { font-size: 0.75rem; color: #777; font-weight: 700; text-transform: uppercase; }
+
+        /* VIDEO SECTION */
+        .c-video-hub {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 5rem 0;
+        }
+
+        .c-video-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 3rem;
+        }
+
+        .c-video-player {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #111;
+            border: 1px solid #333;
+        }
+
+        .c-playlist { max-height: 550px; overflow-y: auto; padding-right: 1rem; }
+        .c-playlist::-webkit-scrollbar { width: 5px; }
+        .c-playlist::-webkit-scrollbar-thumb { background: var(--color-blue-primary); }
+
+        .c-playlist-item {
+            display: flex; gap: 1rem; padding: 1rem; margin-bottom: 1rem;
+            background: #111; cursor: pointer; transition: var(--transition);
+        }
+        .c-playlist-item:hover { background: #222; }
+        .c-playlist-item--active { border-left: 4px solid var(--color-blue-primary); background: #1a1a1a; }
+
+        .c-playlist-thumb { width: 120px; aspect-ratio: 16/9; background: #333; flex-shrink: 0; }
+        .c-playlist-info h4 { font-size: 0.85rem; font-weight: 700; line-height: 1.4; }
+
+        /* FOOTER */
+        .c-footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        /* ==========================================================================
+           6. TRUMPS (Utility & Media)
+           ========================================================================== */
+        .u-text-blue { color: var(--color-blue-primary); }
+        .u-mb-large { margin-bottom: 5rem; }
+
+        @media (max-width: 1100px) {
+            .c-video-layout { grid-template-columns: 1fr; }
+            .o-grid--news { grid-template-columns: repeat(2, 1fr); }
+            .c-sponsor-bar__inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            .o-grid--news { grid-template-columns: 1fr; }
+            .c-hero { padding: 5rem 0; text-align: center; }
+            .c-hero__desc { border-left: none; border-top: 4px solid var(--color-blue-primary); padding: 1.5rem 0 0; margin: 0 auto; }
+            .c-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="c-header">
+        <div class="o-container c-header__inner">
+            <div class="c-brand-logo">
+                <strong style="font-size: 1.4rem; letter-spacing: -1px; text-transform: uppercase;">Preparados <span class="u-text-blue">+</span> Seguros</strong>
+            </div>
+            <nav class="c-nav">
+                <a href="#" class="c-nav__link">Noticias</a>
+                <a href="#" class="c-nav__link">Prevención</a>
+                <a href="#" class="c-nav__link">Videos</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sponsor Bar TOP -->
+    <section class="c-sponsor-bar">
+        <div class="o-container c-sponsor-bar__inner">
+            <div class="c-sponsor-item">
+                <span class="c-sponsor-label">ES UNA CAMPAÑA DE:</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/RPP_Noticias_logo.svg/1200px-RPP_Noticias_logo.svg.png" alt="RPP" class="c-sponsor-logo">
+            </div>
+            <div class="c-sponsor-item">
+                <span class="c-sponsor-label">CON EL COMPROMISO DE:</span>
+                <img src="https://www.pacifico.com.pe/o/pacifico-seguros-theme/images/logo-pacifico.png" alt="Pacífico Seguros" class="c-sponsor-logo">
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Hero -->
+        <section class="c-hero">
+            <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&q=80&w=1600" class="c-hero__bg" alt="Niño 2026">
+            <div class="o-container">
+                <div class="c-hero__content">
+                    <h1 class="c-hero__title">FENÓMENO EL NIÑO 2026: <br>PREPARADOS ESTAMOS <span class="u-text-blue">MÁS SEGUROS</span></h1>
+                    <p class="c-hero__desc">Información técnica y medidas de prevención ante la emergencia climática en el territorio nacional.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Grid -->
+        <section class="o-container" style="margin-top: 5rem;">
+            <h2 class="u-mb-large" style="font-size: 2.5rem; font-weight: 900; text-transform: uppercase; border-bottom: 8px solid var(--color-black); display: inline-block; padding-bottom: 0.5rem;">Últimas Noticias</h2>
+            
+            <div class="o-grid o-grid--news" style="grid-template-columns: repeat(4, 1fr);">
+                <!-- Card 1 -->
+                <article class="c-card">
+                    <div class="c-card__img-container"><img src="https://via.placeholder.com/400x225" class="c-card__img"></div>
+                    <span class="c-badge">Urgente</span>
+                    <h3 class="c-card__title">El Niño Costero exige prevención urgente para preservar la vida</h3>
+                    <span class="c-card__date">08 Mar 2026</span>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="c-card">
+                    <div class="c-card__img-container"><img src="https://via.placeholder.com/400x225" class="c-card__img"></div>
+                    <span class="c-badge">Prevención</span>
+                    <h3 class="c-card__title">¿Cómo protegerte ante el FEN? Grupo RPP y Pacífico lanzan campaña</h3>
+                    <span class="c-card__date">05 Mar 2026</span>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="c-card">
+                    <div class="c-card__img-container"><img src="https://via.placeholder.com/400x225" class="c-card__img"></div>
+                    <h3 class="c-card__title">Ayacucho: piden rescate de familiares atrapados tras desborde</h3>
+                    <span class="c-card__date">04 Mar 2026</span>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="c-card">
+                    <div class="c-card__img-container"><img src="https://via.placeholder.com/400x225" class="c-card__img"></div>
+                    <h3 class="c-card__title">Lurigancho-Chosica: aumento de caudal genera preocupación</h3>
+                    <span class="c-card__date">28 Feb 2026</span>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="c-card">
+                    <div class="c-card__img-container"><img src="https://via.placeholder.com/400x225" class="c-card__img"></div>
+                    <h3 class="c-card__title">Caudal del río Rímac baja a umbral amarillo tras días en rojo</h3>
+                    <span class="c-card__date">01 Mar 2026</span>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="c-card">
+                    <div class="c-card__img-container"><img src="https://via.placeholder.com/400x225" class="c-card__img"></div>
+                    <h3 class="c-card__title">Minedu: inicio de clases está en evaluación en regiones críticas</h3>
+                    <span class="c-card__date">02 Mar 2026</span>
+                </article>
+
+                <!-- Card 7 -->
+                <article class="c-card">
+                    <div class="c-card__img-container"><img src="https://via.placeholder.com/400x225" class="c-card__img"></div>
+                    <h3 class="c-card__title">COER Lambayeque advierte graves deficiencias en drenaje pluvial</h3>
+                    <span class="c-card__date">27 Feb 2026</span>
+                </article>
+
+                <!-- Card 8 -->
+                <article class="c-card">
+                    <div class="c-card__img-container"><img src="https://via.placeholder.com/400x225" class="c-card__img"></div>
+                    <h3 class="c-card__title">Enfen activa alerta de Niño Costero: se prolongaría hasta noviembre</h3>
+                    <span class="c-card__date">14 Feb 2026</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- Video Gallery Hub -->
+        <section class="c-video-hub">
+            <div class="o-container">
+                <h2 class="u-mb-large" style="font-size: 2rem; border-left: 6px solid var(--color-blue-primary); padding-left: 1.5rem;">CENTRO DE VIDEOS</h2>
+                
+                <div class="c-video-layout">
+                    <!-- Main Video -->
+                    <div class="c-video-main">
+                        <iframe class="c-video-player" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        <div style="padding-top: 1.5rem;">
+                            <span class="u-text-blue" style="font-weight: 900; font-size: 0.8rem;">REPRODUCIENDO:</span>
+                            <h3 style="font-size: 1.8rem; margin-top: 0.5rem; font-weight: 900; line-height: 1.1;">Lanzamiento oficial de la campaña nacional de prevención</h3>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Playlist -->
+                    <aside class="c-playlist">
+                        <div class="c-playlist-item c-playlist-item--active">
+                            <div class="c-playlist-thumb"><img src="https://via.placeholder.com/120x68" alt=""></div>
+                            <div class="c-playlist-info">
+                                <h4>Campaña RPP y Pacífico: Reportaje Especial</h4>
+                                <small class="u-text-blue">AHORA</small>
+                            </div>
+                        </div>
+                        <div class="c-playlist-item">
+                            <div class="c-playlist-thumb"><img src="https://via.placeholder.com/120x68" alt=""></div>
+                            <div class="c-playlist-info">
+                                <h4>Entrevista: Recomendaciones del Senamhi</h4>
+                                <small style="color: #666;">8:45</small>
+                            </div>
+                        </div>
+                        <div class="c-playlist-item">
+                            <div class="c-playlist-thumb"><img src="https://via.placeholder.com/120x68" alt=""></div>
+                            <div class="c-playlist-info">
+                                <h4>¿Cómo actuar ante un huaico o inundación?</h4>
+                                <small style="color: #666;">5:12</small>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sponsor Bar BOTTOM -->
+    <section class="c-sponsor-bar c-sponsor-bar--bottom">
+        <div class="o-container c-sponsor-bar__inner">
+            <div class="c-sponsor-item">
+                <span class="c-sponsor-label">ES UNA CAMPAÑA DE:</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/RPP_Noticias_logo.svg/1200px-RPP_Noticias_logo.svg.png" alt="RPP" class="c-sponsor-logo">
+            </div>
+            <div class="c-sponsor-item">
+                <span class="c-sponsor-label">CON EL COMPROMISO DE:</span>
+                <img src="https://www.pacifico.com.pe/o/pacifico-seguros-theme/images/logo-pacifico.png" alt="Pacífico Seguros" class="c-sponsor-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Legal -->
+    <footer class="c-footer">
+        <div class="o-container">
+            <p style="font-size: 0.75rem; color: #555; font-weight: 700;">&copy; 2026 RPP NOTICIAS Y PACÍFICO SEGUROS. TODOS LOS DERECHOS RESERVADOS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
