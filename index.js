@@ -61,4 +61,18 @@ document.addEventListener('DOMContentLoaded', () => {
     videoPlayer.src = `https://www.youtube.com/embed/${initialVideo.id}`;
     videoTitle.textContent = initialVideo.title;
     renderPlaylist(0);
+
+    // Initialise Smooth Scrolling Navigation
+    document.querySelectorAll('.c-nav__link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if(targetId && targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
 });
